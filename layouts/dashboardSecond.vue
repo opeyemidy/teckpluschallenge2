@@ -19,7 +19,15 @@
         <v-list-item>
           <div class="my-12"></div>
         </v-list-item>
-        <v-list-item v-for="(item, i) in items" :key="i" exact class="mt-7">
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          exact
+          class="mt-7 ml-3"
+          nuxt
+          :to="item.to"
+          active-class="red lighten-4 indigo--text text--darken-4 radius-active-class"
+        >
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -137,26 +145,31 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Dashboard',
-          to: '/',
+          to: '/dashboard-second',
         },
         {
           icon: 'mdi-square-edit-outline',
-          title: 'Editors',
+          title: 'My Articles',
           to: '/inspire',
         },
         {
           icon: 'mdi-account-group-outline',
-          title: 'Leads',
+          title: 'Inbox',
+          to: '/inspire',
+        },
+        {
+          icon: 'mdi-cog-outline',
+          title: 'Post Plan',
+          to: '/inspire',
+        },
+        {
+          icon: 'mdi-file-document-outline',
+          title: 'Earning',
           to: '/inspire',
         },
         {
           icon: 'mdi-cog-outline',
           title: 'Settings',
-          to: '/inspire',
-        },
-        {
-          icon: 'mdi-file-document-outline',
-          title: 'Preview',
           to: '/inspire',
         },
       ],
@@ -176,3 +189,8 @@ export default {
   },
 }
 </script>
+<style>
+.radius-active-class {
+  border-radius: 5px;
+}
+</style>

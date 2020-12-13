@@ -53,35 +53,11 @@
           </div>
         </v-col>
         <v-col cols="12" class="d-none d-md-block" md="4">
-          <v-card color="#bbebee" class="mb-5" style="border-radius: 8px" flat>
-            <v-card-text class="px-0 py-2">
-              <v-row class="ma-0">
-                <v-col cols="3" class="d-flex">
-                  <div
-                    style="position: relative; width: 50px"
-                    class="d-flex justify-center align-center"
-                  >
-                    <div
-                      style="
-                        position: absolute;
-                        height: 50px;
-                        width: 50px;
-                        border-radius: 12px;
-                        background-color: #232946;
-                      "
-                    ></div>
-                    <v-icon color="#eebbc3" large dark>mdi-plus</v-icon>
-                  </div>
-                </v-col>
-                <v-col cols="9">
-                  <div class="text-h4" style="color: #232946">$620</div>
-                  <div class="text-subtitle-2" style="color: #586d81">
-                    Total earnings
-                  </div>
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
+          <side-card
+            v-for="(sideCard, i) in sideCards"
+            :key="i"
+            :side-card="sideCard"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -90,8 +66,9 @@
 
 <script>
 import cardInfo from '~/components/dashboard-second/cardInfo.vue'
+import SideCard from '~/components/dashboard-second/sideCard.vue'
 export default {
-  components: { cardInfo },
+  components: { cardInfo, SideCard },
   layout: 'dashboardSecond',
   data() {
     return {
@@ -127,6 +104,26 @@ export default {
           views: 3.1,
           likes: 2.2,
           cash: 25,
+        },
+      ],
+      sideCards: [
+        {
+          color: '#bbebee',
+          icon: 'mdi-plus',
+          value: 620,
+          text: 'Total earnings',
+        },
+        {
+          color: '#d4d8f0',
+          icon: 'mdi-plus',
+          value: 13,
+          text: 'Articles request',
+        },
+        {
+          color: '#eebbc3',
+          icon: 'mdi-plus',
+          value: '03',
+          text: 'Pending articles',
         },
       ],
     }
