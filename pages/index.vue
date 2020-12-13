@@ -89,7 +89,7 @@ export default {
   },
 }
 </script>
-<style scoped>
+<style>
 .custom-radius {
   border-radius: 20px;
 }

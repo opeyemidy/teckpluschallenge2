@@ -6,6 +6,8 @@
       :clipped="clipped"
       floating
       app
+      dark
+      color="#232946"
     >
       <v-list>
         <div style="postion: relative" class="d-flex align-center pl-5">
@@ -14,18 +16,8 @@
           </v-avatar>
           <div class="title pl-2">Application</div>
         </div>
-        <v-list-item two-line class="mt-7">
-          <v-card color="#f7f8fd" flat width="65%">
-            <v-card-text class="d-flex px-2 justify-space-between align-center">
-              <div class="mr-2">
-                <p class="mb-0 body-1 black--text">Create</p>
-                <p class="mb-0 body-1 black--text">New pitch</p>
-              </div>
-              <v-btn small fab dark color="purple darken-4">
-                <v-icon> mdi-plus </v-icon>
-              </v-btn>
-            </v-card-text>
-          </v-card>
+        <v-list-item>
+          <div class="my-12"></div>
         </v-list-item>
         <v-list-item v-for="(item, i) in items" :key="i" exact class="mt-7">
           <v-list-item-action>
@@ -37,39 +29,73 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed flat app color="white">
+    <v-app-bar :clipped-left="clipped" fixed flat app dark color="#232946">
       <v-app-bar-nav-icon
         class="d-inline-flex d-md-none"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <div>
-        <v-toolbar-title class="font-weight-medium" v-text="title" />
-        <div class="d-none d-sm-block">
-          <div class="text-subtitle-2">
-            <span class="purple--text text--darken-4">Monday,</span>
-            <span class="grey--text">02 March, 2020</span>
+        <v-text-field
+          hide-details
+          outlined
+          dense
+          filled
+          prepend-inner-icon="mdi-magnify"
+          color="black"
+        ></v-text-field>
+      </div>
+      <v-spacer></v-spacer>
+      <div class="d-none d-md-inline-flex">
+        <div class="mr-12 d-inline-flex">
+          <div
+            style="position: relative; margin: 0 5px"
+            class="d-flex justify-center align-center"
+          >
+            <div
+              style="
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                opacity: 0.3;
+                border-radius: 5px;
+              "
+              class="white"
+            ></div>
+            <v-btn icon small>
+              <v-icon>mdi-message-outline</v-icon>
+            </v-btn>
+          </div>
+          <div
+            style="position: relative; margin: 0 5px"
+            class="d-flex justify-center align-center"
+          >
+            <div
+              style="
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                opacity: 0.3;
+                border-radius: 5px;
+              "
+              class="white"
+            ></div>
+
+            <v-btn icon small>
+              <v-badge color="#f2c94c" overlap dot>
+                <v-icon>mdi-bell-outline</v-icon>
+              </v-badge>
+            </v-btn>
           </div>
         </div>
       </div>
-      <v-spacer></v-spacer>
-      <div class="d-none d-md-block">
-        <v-btn icon>
-          <v-icon>mdi-email-outline</v-icon>
-        </v-btn>
-        <v-btn icon>
-          <v-icon>mdi-bell-outline</v-icon>
-        </v-btn>
-        <v-avatar tile color="deep-purple lighten-4">
-          <span class="purple--text title text--darken-4">AJ</span>
-        </v-avatar>
-      </div>
+
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             :ripple="false"
             v-bind="attrs"
             text
-            class="text-capitalize d-md-none"
+            class="text-capitalize"
             v-on="on"
             >Alyssa Jones <v-icon>mdi-chevron-down</v-icon></v-btn
           >
@@ -80,9 +106,20 @@
           </v-list-item>
         </v-list>
       </v-menu>
+      <v-avatar
+        size="40"
+        color="deep-purple lighten-4"
+        style="border-radius: 5px"
+      >
+        <span class="purple--text title text--darken-4">AJ</span>
+      </v-avatar>
     </v-app-bar>
     <v-main>
-      <v-container fluid>
+      <v-container
+        fluid
+        style="background-color: #232946"
+        class="fill-height pt-0"
+      >
         <nuxt />
       </v-container>
     </v-main>
